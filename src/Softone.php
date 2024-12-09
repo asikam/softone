@@ -73,7 +73,7 @@ class Softone implements SoftoneInterface
      *
      * @var string|null
      */
-    private ?string $reqID;
+    public ?string $reqID;
 
     /**
      * Softone request Object
