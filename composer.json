@@ -1,0 +1,28 @@
+{
+    "name": "asikam/softone",
+    "autoload": {
+        "psr-4": {
+            "Asikam\\Softone\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Aggelossik",
+            "email": "a.sykamiotis@gmail.com"
+        }
+    ],
+    "require": {
+        "PHP": "^8.2",
+        "ext-iconv": "*"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Asikam\\Softone\\SoftoneServiceProvider"
+            ],
+            "aliases": {
+                "Softone": "Asikam\\Softone\\Facade"
+            }
+        }
+    }
+}
