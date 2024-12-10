@@ -8,19 +8,9 @@
 
         composer require asikam/softone
 
-- Alternative
+- Then publish the config file
 
-    Add this to your composer.json in your project:
-
-        "repositories": [
-            {
-                "type": "vcs",
-                "url": "https://github.com/asikam/softone"
-            }
-        ],
-            "require": {
-                "asikam/softone": "dev-master"
-            }
+        php artisan vendor:publish --provider="Asikam\Softone\SoftoneServiceProvider"
 
 ## Usage
 
