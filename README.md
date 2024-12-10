@@ -4,6 +4,9 @@
 
 ## Installation
 
+##     
+        composer require asikam/softone
+
 - Add this to your composer.json in your project:
 
 ##
