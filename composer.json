@@ -1,5 +1,16 @@
 {
     "name": "asikam/softone",
+    "description": "A simple Laravel package to interact with Softone ERP",
+    "keywords": [
+        "framework",
+        "http",
+        "rest",
+        "web service",
+        "curl",
+        "client",
+        "HTTP client"
+    ],
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Asikam\\Softone\\": "src/"
