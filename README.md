@@ -1,4 +1,4 @@
-## A Laravel package for interacting with the SOFTONE ERP webservices the easy way
+## A simple Laravel package to interact with Softone ERP
     
     - Disclaimer: this is not an official package     
 
