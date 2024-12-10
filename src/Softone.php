@@ -356,10 +356,10 @@ class Softone implements SoftoneInterface
 
     /**
      * Start
-     * @param string|Integer $start
+     * @param string|integer $start
      * @return void
      */
-    public function start(string|Integer $start): void
+    public function start(string|int $start): void
     {
         $this->start = $start;
     }
@@ -369,7 +369,7 @@ class Softone implements SoftoneInterface
      * @param string|integer $limit
      * @return void
      */
-    public function limit(string|Integer $limit): void
+    public function limit(string|int $limit): void
     {
         $this->limit = $limit;
     }
