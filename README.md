@@ -1,5 +1,24 @@
 ## A Laravel package for interacting with the SOFTONE ERP webservices the easy way
-     
+    
+    - Disclaimer: this is not an official package     
+
+## Installation
+
+- Add this to your composer.json in your project:
+
+##
+        "repositories": [
+            {
+                "type": "vcs",
+                "url": "https://github.com/asikam/softone"
+            }
+        ],
+            "require": {
+                "asikam/softone": "dev-master"
+            }
+
+## Usage
+
         $softone = new Softone();
         $softone->setService('getBrowserInfo');
         $softone->setObject('CUSTOMER');
@@ -16,3 +35,4 @@
             echo $item['CUSTOMER.AFM']."\n";
         }
 
+- read more at: https://www.softone.gr/ws/
