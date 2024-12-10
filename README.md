@@ -4,13 +4,13 @@
 
 ## Installation
 
-## With composer
+- With composer
 
         composer require asikam/softone
 
-- Add this to your composer.json in your project:
+- Alternative
 
-## Alternative
+    Add this to your composer.json in your project:
 
         "repositories": [
             {
