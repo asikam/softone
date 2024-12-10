@@ -7,7 +7,6 @@ use Exception;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
-use phpDocumentor\Reflection\Types\Integer;
 
 class Softone implements SoftoneInterface
 {
@@ -134,6 +133,12 @@ class Softone implements SoftoneInterface
      * @var int|null
      */
     private ?int $key;
+
+    /**
+     * Key
+     * @var mixed
+     */
+    private mixed $data;
 
     /**
      * Locate Info
@@ -389,13 +394,43 @@ class Softone implements SoftoneInterface
     }
 
     /**
-     * Set Page Number
+     * Set Req ID
+     * @param mixed $data
+     * @return void
+     */
+    public function setData(mixed $data): void
+    {
+        $this->data = $data;
+    }
+
+    /**
+     * Get Req ID
+     * @return string
+     */
+    public function getData(): string
+    {
+        return $this->data;
+    }
+
+    /**
+     * Set Page Number of HTML report
+     * Valid only when using service getReportData
      * @param $pagenum
      * @return void
      */
     public function setPageNumber($pagenum): void
     {
         $this->pagenum = $pagenum;
+    }
+
+    /**
+     * Get Page Number of HTML report
+     * Valid only when using service getReportData
+     * @return int|null
+     */
+    public function getPageNumber(): int|null
+    {
+        return $this->pagenum;
     }
 
     /**
@@ -459,6 +494,7 @@ class Softone implements SoftoneInterface
             "LIMIT"         => $this->limit ?? null,
             "FORM"          => $this->form ?? "",
             "KEY"           => $this->key ?? null,
+            "data"          => $this->data ?? null,
             "LOCATEINFO"    => $this->locateInfo ?? "",
 
         ];
@@ -507,18 +543,18 @@ class Softone implements SoftoneInterface
      *             "CUSTOMER.NAME" => "TEST COMPANY"
      *
      */
-    public mixed $data;
+    public mixed $responseData;
     public function combine()
     {
         if (isset($this->fields) && isset($this->response->rows) ){
 
             foreach ($this->response->rows as $row){
 
-                $this->data [] = $this->fields->combine(collect($row));
+                $this->responseData [] = $this->fields->combine(collect($row));
 
             }
 
-            return $this->data;
+            return $this->responseData;
         }
 
         return null;
