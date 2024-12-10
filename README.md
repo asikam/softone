@@ -4,8 +4,6 @@
 
 ## Installation
 
-- With composer
-
         composer require asikam/softone
 
 - Then publish the config file
