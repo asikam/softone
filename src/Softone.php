@@ -7,6 +7,7 @@ use Exception;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
+use phpDocumentor\Reflection\Types\Integer;
 
 class Softone implements SoftoneInterface
 {
@@ -350,20 +351,20 @@ class Softone implements SoftoneInterface
 
     /**
      * Start
-     * @param string $start
+     * @param string|Integer $start
      * @return void
      */
-    public function start(string $start): void
+    public function start(string|Integer $start): void
     {
         $this->start = $start;
     }
 
     /**
      * Limit
-     * @param string $limit
+     * @param string|integer $limit
      * @return void
      */
-    public function limit(string $limit): void
+    public function limit(string|Integer $limit): void
     {
         $this->limit = $limit;
     }

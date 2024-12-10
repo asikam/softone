@@ -27,7 +27,7 @@
 
         $softone->setService('getBrowserData');
         $softone->setReqId($softone->reqID);
-        $softone->limit($softone->response->totalcount);
+        $softone->limit(10);
         $softone->send();
 
         foreach ($softone->data as $item) {
