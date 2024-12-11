@@ -15,6 +15,7 @@ Official documentation at: https://www.softone.gr/ws/
         php artisan vendor:publish --provider="Asikam\Softone\SoftoneServiceProvider"
 
 ## Usage
+
 ```php 
     $softone = new Softone();
     $softone->setService('getBrowserInfo');
