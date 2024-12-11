@@ -1,6 +1,10 @@
-## A simple Laravel package to interact with Softone ERP
-    
+## Softone Web Services Laravel PHP package
+
+Laravel package that makes it easy to use the Softone Web Services REST API.
+
     - Disclaimer: this is not an official package     
+
+Official documentation at: https://www.softone.gr/ws/
 
 ## Installation
 
@@ -29,4 +33,4 @@
     }
 ```
 
-- read more at: https://www.softone.gr/ws/
+- read more on how to use the Web Services at: https://www.softone.gr/ws/
