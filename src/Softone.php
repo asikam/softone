@@ -147,6 +147,18 @@ class Softone implements SoftoneInterface
     private ?string $locateInfo;
 
     /**
+     * Requests Body
+     * @var array
+     */
+    public array $body;
+
+    /**
+     * Requests response
+     * @var mixed
+     */
+    public mixed $response;
+
+    /**
      * Set Softone Service
      * @param $service
      * @return void
@@ -394,7 +406,7 @@ class Softone implements SoftoneInterface
     }
 
     /**
-     * Set Req ID
+     * Set Request Data
      * @param mixed $data
      * @return void
      */
@@ -404,7 +416,7 @@ class Softone implements SoftoneInterface
     }
 
     /**
-     * Get Req ID
+     * Get Request Data
      * @return string
      */
     public function getData(): string
@@ -455,16 +467,34 @@ class Softone implements SoftoneInterface
     }
 
     /**
-     * Requests Body
-     * @var array
+     * Constructor
+     * @throws Exception
      */
-    public array $body;
+    public function __construct(
+        $username   = null,
+        $password   = null,
+        $appID      = null,
+        $company    = null,
+        $branch     = null,
+        $module     = null,
+        $refid      = null,
+    )
+    {
+        $this->setService('login');
+        $this->setUsername($username ?? config('softone.SOFTONE_USER'));
+        $this->setPass($password ?? config('softone.SOFTONE_PASS'));
+        $this->setAppId($appID ?? config('softone.SOFTONE_APPID'));
+        $this->setCompany( $company ?? config('softone.SOFTONE_COMPANY'));
+        $this->setBranch( $branch ?? config('softone.SOFTONE_BRANCH'));
+        $this->setModule( $module ?? config('softone.SOFTONE_MODULE'));
+        $this->setRefid($refid ?? config('softone.SOFTONE_REFID'));
 
-    /**
-     * Requests response
-     * @var mixed
-     */
-    public mixed $response;
+        $response = $this->send();
+
+        $this->setClientID($response->clientID ?? null );
+
+    }
+
 
     /**
      * Set Requests Body
@@ -519,6 +549,33 @@ class Softone implements SoftoneInterface
     }
 
     /**
+     * Reset the request body for the next request
+     * @return void
+     */
+    private function resetBody(): void
+    {
+        $this->service      = null;
+        $this->username     = null;
+        $this->password     = null;
+        $this->company      = null;
+        $this->branch       = null;
+        $this->module       = null;
+        $this->refid        = null;
+        $this->userid       = null;
+        $this->reqID        = null;
+        $this->object       = null;
+        $this->filters      = null;
+        $this->list         = null;
+        $this->table        = null;
+        $this->pagenum      = null;
+        $this->start        = null;
+        $this->limit        = null;
+        $this->form         = null;
+        $this->key          = null;
+        $this->locateInfo   = null;
+    }
+
+    /**
      *  Get the Response Fields position
      * for example 2 => "CUSTOMER.CODE"
      *             3 => "CUSTOMER.NAME"
@@ -558,63 +615,6 @@ class Softone implements SoftoneInterface
         }
 
         return null;
-    }
-
-    /**
-     * Reset the request body for the next request
-     * @return void
-     */
-    private function resetBody(): void
-    {
-        $this->service      = null;
-        $this->username     = null;
-        $this->password     = null;
-        $this->company      = null;
-        $this->branch       = null;
-        $this->module       = null;
-        $this->refid        = null;
-        $this->userid       = null;
-        $this->reqID        = null;
-        $this->object       = null;
-        $this->filters      = null;
-        $this->list         = null;
-        $this->table        = null;
-        $this->pagenum      = null;
-        $this->start        = null;
-        $this->limit        = null;
-        $this->form         = null;
-        $this->key          = null;
-        $this->locateInfo   = null;
-    }
-
-
-    /**
-     * Constructor
-     * @throws Exception
-     */
-    public function __construct(
-        $username   = null,
-        $password   = null,
-        $appID      = null,
-        $company    = null,
-        $branch     = null,
-        $module     = null,
-        $refid      = null,
-    )
-    {
-        $this->setService('login');
-        $this->setUsername($username ?? config('softone.SOFTONE_USER'));
-        $this->setPass($password ?? config('softone.SOFTONE_PASS'));
-        $this->setAppId($appID ?? config('softone.SOFTONE_APPID'));
-        $this->setCompany( $company ?? config('softone.SOFTONE_COMPANY'));
-        $this->setBranch( $branch ?? config('softone.SOFTONE_BRANCH'));
-        $this->setModule( $module ?? config('softone.SOFTONE_MODULE'));
-        $this->setRefid($refid ?? config('softone.SOFTONE_REFID'));
-
-        $response = $this->send();
-
-        $this->setClientID($response->clientID ?? null );
-
     }
 
     /**
