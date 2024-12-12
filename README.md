@@ -1,4 +1,4 @@
-## Softone Web Services Laravel PHP package
+## Softone Web Services PHP Laravel package
 
 Laravel package that makes it easy to use the Softone Web Services REST API.
 
