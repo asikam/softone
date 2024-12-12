@@ -153,6 +153,11 @@ class Softone implements SoftoneInterface
     public array $body;
 
     /**
+     *  The Response Fields
+     */
+    public mixed $fields;
+
+    /**
      * Requests response
      * @var mixed
      */
@@ -255,6 +260,7 @@ class Softone implements SoftoneInterface
         $this->module = $module;
     }
 
+
     /**
      * Set Ref id
      * @param $refid
@@ -264,7 +270,6 @@ class Softone implements SoftoneInterface
     {
         $this->refid = $refid;
     }
-
 
     /**
      * Set Client ID
@@ -466,6 +471,7 @@ class Softone implements SoftoneInterface
         return $this->$key;
     }
 
+
     /**
      * Constructor
      * @throws Exception
@@ -494,7 +500,6 @@ class Softone implements SoftoneInterface
         $this->setClientID($response->clientID ?? null );
 
     }
-
 
     /**
      * Set Requests Body
@@ -575,13 +580,6 @@ class Softone implements SoftoneInterface
         $this->locateInfo   = null;
     }
 
-    /**
-     *  Get the Response Fields position
-     * for example 2 => "CUSTOMER.CODE"
-     *             3 => "CUSTOMER.NAME"
-     */
-    public mixed $fields;
-
     public function saveFields()
     {
 
@@ -591,7 +589,7 @@ class Softone implements SoftoneInterface
 
         }
 
-        return $this->fields;
+        return $this->fields ?? null;
     }
 
     /**
@@ -611,10 +609,9 @@ class Softone implements SoftoneInterface
 
             }
 
-            return $this->responseData;
         }
 
-        return null;
+        return $this->responseData ?? null;
     }
 
     /**
@@ -637,7 +634,7 @@ class Softone implements SoftoneInterface
 
         if ($response->successful()){
 
-            if($this->service == "getBrowserInfo"){
+            if($this->service == "getBrowserInfo") {
                 $this->saveFields();
             }
 
