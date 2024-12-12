@@ -6,6 +6,7 @@ use Asikam\Softone\Interfaces\SoftoneInterface;
 use Exception;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 
 class Softone implements SoftoneInterface
@@ -162,6 +163,13 @@ class Softone implements SoftoneInterface
      * @var mixed
      */
     public mixed $response;
+
+    /**
+     * Combined Response data "CUSTOMER.NAME"=>"TEST"
+     *
+     * @var mixed
+     */
+    public mixed $responseData;
 
     /**
      * Set Softone Service
@@ -578,9 +586,17 @@ class Softone implements SoftoneInterface
         $this->form         = null;
         $this->key          = null;
         $this->locateInfo   = null;
+
+        $this->setBody();
     }
 
-    public function saveFields()
+    /**
+     * Save the response fields from getBrowserInfo
+     *
+     * @return Collection|mixed|null
+     *
+     */
+    public function saveFields(): mixed
     {
 
         if ( isset($this->response->fields)){
@@ -598,7 +614,7 @@ class Softone implements SoftoneInterface
      *             "CUSTOMER.NAME" => "TEST COMPANY"
      *
      */
-    public mixed $responseData;
+
     public function combine()
     {
         if (isset($this->fields) && isset($this->response->rows) ){
