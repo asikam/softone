@@ -1,6 +1,6 @@
 {
     "name": "asikam/softone",
-    "description": "A simple Laravel package to interact with Softone ERP",
+    "description": "A simple PHP Laravel package to interact with Softone ERP Web Services",
     "keywords": [
         "framework",
         "http",
