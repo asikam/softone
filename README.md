@@ -2,7 +2,6 @@
 
 Laravel package that makes it easy to use the Softone Web Services REST API.
 
-
     - Disclaimer: this is not an official package     
 
 Official documentation at: https://www.softone.gr/ws/
