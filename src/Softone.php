@@ -423,7 +423,7 @@ class Softone implements SoftoneInterface
      * @param mixed $data
      * @return void
      */
-    public function setData(mixed $data): void
+    public function setRequestData(mixed $data): void
     {
         $this->data = $data;
     }
@@ -432,7 +432,7 @@ class Softone implements SoftoneInterface
      * Get Request Data
      * @return string
      */
-    public function getData(): string
+    public function getRequestData(): string
     {
         return $this->data;
     }
