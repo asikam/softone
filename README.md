@@ -16,7 +16,28 @@ Official documentation at: https://www.softone.gr/ws/
 
 ## Usage
 
+Get browser Data: 
+
+```php
+    
+    use Asikam\Softone\SoftoneBrowser;
+    
+    $softone = new SoftoneBrowser();
+    $softone->getBrowserInfo("CUSTOMER",'CUSTOMER.AFM=000000000*=;');
+    $softone->getBrowserData();   
+    
+    foreach ($softone->data as $item) {
+        echo $item['CUSTOMER.NAME']."\n";
+        echo $item['CUSTOMER.AFM']."\n";
+    }
+
+```
+or build the request step by step:
+
 ```php 
+    
+    use Asikam\Softone\Softone;
+
     $softone = new Softone();
     $softone->setService('getBrowserInfo');
     $softone->setObject('CUSTOMER');
@@ -32,6 +53,7 @@ Official documentation at: https://www.softone.gr/ws/
         echo $item['CUSTOMER.NAME']."\n";
         echo $item['CUSTOMER.AFM']."\n";
     }
+    
 ```
 
 - read more on how to use the Web Services at: https://www.softone.gr/ws/
