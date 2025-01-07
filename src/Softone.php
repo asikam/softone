@@ -648,6 +648,10 @@ class Softone implements SoftoneInterface
 
         $this->response = json_decode(iconv("windows-1253", "UTF-8", $response->body()));
 
+        if ( !$this->response->success ){
+            throw new \ErrorException($this->response->error, $this->response->errorcode);
+        }
+
         if ($response->successful()){
 
             if($this->service == "getBrowserInfo") {
