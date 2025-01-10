@@ -9,10 +9,10 @@ class SoftoneBrowser extends Softone
     /**
      * @throws \Exception
      */
-    public function search($object, $filters='', $list='' ): void
+    public function search($object, $filters='', $list='', $start='',$limit='' ): void
     {
         $this->getBrowserInfo($object, $filters, $list);
-        $this->getBrowserData();
+        $this->getBrowserData($start, $limit);
     }
 
     /**

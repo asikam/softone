@@ -24,6 +24,10 @@ Get browser Data:
     
     $softone = new SoftoneBrowser();
     $softone->search("CUSTOMER",'CUSTOMER.AFM=000000000*=;');
+    
+    or    
+    
+    $softone->search(object: "CUSTOMER",filters: 'AFM=000000000=;',list: 'WebService',start: 0,limit: 30);
 
     foreach ($softone->responseData as $item) {
         $this->info( $item['CUSTOMER.AFM'] );
