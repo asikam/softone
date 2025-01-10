@@ -23,15 +23,15 @@ Get browser Data:
     use Asikam\Softone\SoftoneBrowser;
     
     $softone = new SoftoneBrowser();
-    $softone->getBrowserInfo("CUSTOMER",'CUSTOMER.AFM=000000000*=;');
-    $softone->getBrowserData();   
-    
-    foreach ($softone->data as $item) {
-        echo $item['CUSTOMER.NAME']."\n";
-        echo $item['CUSTOMER.AFM']."\n";
+    $softone->search("CUSTOMER",'CUSTOMER.AFM=000000000*=;');
+
+    foreach ($softone->responseData as $item) {
+        $this->info( $item['CUSTOMER.AFM'] );
+        $this->info( $item['CUSTOMER.NAME'] );
     }
 
 ```
+
 or build the request step by step:
 
 ```php 

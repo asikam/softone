@@ -9,6 +9,23 @@ class SoftoneBrowser extends Softone
     /**
      * @throws \Exception
      */
+    public function search($object, $filters='', $list='' ): void
+    {
+        $this->getBrowserInfo($object, $filters, $list);
+        $this->getBrowserData();
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function info($object, $filters='', $list='' ): void
+    {
+        $this->getBrowserInfo($object, $filters, $list);
+    }
+
+    /**
+     * @throws \Exception
+     */
     public function getBrowserInfo($object, $filters='', $list='' ): void
     {
         $this->setService(ServiceName::BrowserInfo->value);
@@ -16,6 +33,14 @@ class SoftoneBrowser extends Softone
         $this->setFilters($filters);
         $this->setList($list);
         $this->send();
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function data($start='', $limit='' ): void
+    {
+        $this->getBrowserData($start, $limit);
     }
 
     /**
