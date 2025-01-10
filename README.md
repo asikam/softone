@@ -38,8 +38,7 @@ Get browser Data:
 
 or build the request step by step:
 
-```php 
-    
+```php
     use Asikam\Softone\Softone;
 
     $softone = new Softone();
