@@ -621,6 +621,10 @@ class Softone implements SoftoneInterface
 
             foreach ($this->response->rows as $row){
 
+                if (collect($row)->count() != $this->fields->count()){
+                    return false;
+                }
+
                 $this->responseData [] = $this->fields->combine(collect($row));
 
             }
