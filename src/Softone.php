@@ -646,7 +646,7 @@ class Softone implements SoftoneInterface
         $this->setBody();
 
         if (empty($this->body)) {
-            throw new Exception("the body of the request is not defined or empty");
+            throw new Exception("The body of the request is undefined OR empty");
         }
 
         $response = Http::post(config('softone.SOFTONE_URL'), $this->body)->throw();
