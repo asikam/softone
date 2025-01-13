@@ -2,7 +2,6 @@
 
 namespace Asikam\Softone;
 
-use Asikam\Softone\Enums\ServiceName;
 use Asikam\Softone\Interfaces\SoftoneInterface;
 use Exception;
 use Illuminate\Http\Client\Response;
@@ -646,7 +645,7 @@ class Softone implements SoftoneInterface
         $this->setBody();
 
         if (empty($this->body)) {
-            throw new Exception("The body of the request is undefined OR empty");
+            throw new Exception("the body of the request is not defined or empty");
         }
 
         $response = Http::post(config('softone.SOFTONE_URL'), $this->body)->throw();
@@ -663,15 +662,15 @@ class Softone implements SoftoneInterface
 
         if ($response->successful()){
 
-            if($this->service == ServiceName::BrowserInfo) {
+            if($this->service == "getBrowserInfo") {
                 $this->saveFields();
             }
 
-            if($this->service == ServiceName::BrowserData){
+            if($this->service == "getBrowserData"){
                 $this->combine();
             }
 
-            if ($this->service == ServiceName::ReportData)
+            if ($this->service == "getReportData")
             {
                 return iconv("windows-1253", "UTF-8", $response->body());
             }
