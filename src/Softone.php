@@ -652,14 +652,6 @@ class Softone implements SoftoneInterface
 
         $this->response = json_decode(iconv("windows-1253", "UTF-8", $response->body()));
 
-        if (empty($this->response)){
-            throw new Exception("Response body is empty");
-        }
-
-        if ( !$this->response->success ){
-            throw new \ErrorException($this->response->error, $this->response->errorcode);
-        }
-
         if ($response->successful()){
 
             switch ($this->service){
@@ -679,6 +671,15 @@ class Softone implements SoftoneInterface
             return $this->response;
 
         }
+
+        if (empty($this->response)){
+            throw new Exception("Response body is empty");
+        }
+
+        if ( !$this->response->success ){
+            throw new \ErrorException($this->response->error, $this->response->errorcode);
+        }
+
 
         throw new Exception('ERROR:' . $response->body());
     }
