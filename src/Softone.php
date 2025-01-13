@@ -2,6 +2,7 @@
 
 namespace Asikam\Softone;
 
+use Asikam\Softone\Enums\ServiceName;
 use Asikam\Softone\Interfaces\SoftoneInterface;
 use Exception;
 use Illuminate\Http\Client\Response;
@@ -641,7 +642,6 @@ class Softone implements SoftoneInterface
      */
     public function send(): mixed
     {
-
         $this->setBody();
 
         if (empty($this->body)) {
@@ -662,17 +662,15 @@ class Softone implements SoftoneInterface
 
         if ($response->successful()){
 
-            if($this->service == "getBrowserInfo") {
-                $this->saveFields();
-            }
-
-            if($this->service == "getBrowserData"){
-                $this->combine();
-            }
-
-            if ($this->service == "getReportData")
-            {
-                return iconv("windows-1253", "UTF-8", $response->body());
+            switch ($this->service){
+                case ServiceName::BrowserInfo->value:
+                    $this->saveFields();
+                    break;
+                case ServiceName::BrowserData->value:
+                    $this->combine();
+                    break;
+                case ServiceName::ReportData->value:
+                    return iconv("windows-1253", "UTF-8", $response->body());
             }
 
             /* prepare for the next request */
