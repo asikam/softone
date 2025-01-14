@@ -132,9 +132,9 @@ class Softone implements SoftoneInterface
 
     /**
      * Key
-     * @var int|null
+     * @var null|int|string
      */
-    private ?int $key;
+    private null|int|string $key;
 
     /**
      * Key
