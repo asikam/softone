@@ -311,10 +311,10 @@ class Softone implements SoftoneInterface
 
     /**
      * Set Key
-     * @param string $key
+     * @param int|string|null $key
      * @return void
      */
-    public function setKey(string $key): void
+    public function setKey(null|int|string $key): void
     {
         $this->key = $key;
     }
