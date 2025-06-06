@@ -650,7 +650,7 @@ class Softone implements SoftoneInterface
 
         $response = Http::post(config('softone.SOFTONE_URL'), $this->body)->throw();
 
-        $this->response = json_decode(iconv("windows-1253", "UTF-8", $response->body()));
+        $this->response = json_decode(iconv("windows-1253", "UTF-8//IGNORE", $response->body()));
 
         if ($response->successful()){
 
