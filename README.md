@@ -155,7 +155,7 @@ The core `Softone` class provides numerous methods for building and sending requ
 - `setKey($key)`: Sets the key for getData requests
 - `setFilters($filters)`: Sets the filters for browser requests
 - `setList($list)`: Sets the list for browser requests
-- `locate($locate)`: Sets the locate parameter
+- `locate($locate)`: Sets the locate info softone parameter
 - `start($start)`: Sets the start parameter for pagination
 - `limit($limit)`: Sets the limit parameter for pagination
 - `setReqId($reqID)`: Sets the request ID for getBrowserData requests
