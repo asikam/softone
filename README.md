@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-    A Laravel package that makes it easy to use the Softone Web Services REST API.
+    A Laravel package that makes it easy to consume Softone ERP Web Services REST API.
 </p>
 
 <p align="center">
