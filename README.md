@@ -98,9 +98,9 @@ foreach ($softone->responseData as $item) {
 }
 ```
 
-### Building Requests Step by Step
+### Building The Request
 
-For more control, you can use the core `Softone` class to build your requests step by step:
+For more control, you can use the core `Softone` class to build your requests:
 
 ```php
 use Asikam\Softone\Softone;
@@ -134,7 +134,6 @@ foreach ($softone->data as $item) {
 - `search($object, $filters, $list, $start, $limit)`: Combines getBrowserInfo and getBrowserData in one call
 - `info($object, $filters, $list)`: Gets browser information for a specific object
 - `getBrowserInfo($object, $filters, $list)`: Gets browser information for a specific object
-- `data($start, $limit)`: Gets browser data with pagination
 - `getBrowserData($start, $limit)`: Gets browser data with pagination
 - `getData($object, $key)`: Gets data for a specific object with a key
 
